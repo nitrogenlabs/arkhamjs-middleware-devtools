@@ -1,0 +1,71 @@
+{
+  "name": "@nlabs/arkhamjs-middleware-devtools",
+  "version": "0.1.0",
+  "description": "Add devtools to ArkhamJS app",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "./lib/index.d.ts",
+  "typings": "lib/index",
+  "keywords": [
+    "arkhamjs",
+    "flux",
+    "immutable",
+    "middleware",
+    "nitrogenlabs",
+    "devtools"
+  ],
+  "author": "Giraldo Rosales <giraldo@nitrogenlabs.com> (http://nitrogenlabs.com/)",
+  "repository": {
+    "type": "git",
+    "url": "nitrogenlabs/arkhamjs-middleware-devtools.git"
+  },
+  "homepage": "https://arkhamjs.io",
+  "bugs": {
+    "url": "nitrogenlabs/arkhamjs-middleware-devtools/issues"
+  },
+  "scripts": {
+    "compile": "NODE_ENV=production tsc",
+    "lint": "tslint -c ./tslint.json -p ./tsconfig.json './src/**/*.{ts,tsx}'",
+    "prepublishOnly": "yarn lint && yarn compile",
+    "pretest": "yarn lint",
+    "reset": "rm -rf node_modules yarn.lock && yarn",
+    "test": "NODE_ENV=test jest",
+    "update": "yarn upgrade-interactive --latest"
+  },
+  "peerDependencies": {
+    "arkhamjs": "^3.3.3",
+    "redux": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.2",
+    "@types/node": "^9.6.2",
+    "arkhamjs": "^3.3.3",
+    "awesome-typescript-loader": "^5.0.0",
+    "jest": "^22.4.3",
+    "jest-environment-jsdom": "^22.4.3",
+    "ts-jest": "^22.4.3",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "typescript": "^2.8.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx",
+      "json"
+    ],
+    "rootDir": "./",
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "testEnvironment": "jsdom",
+    "testRegex": "./src/.*\\.test\\.(ts|tsx|js)$",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "verbose": false
+  }
+}
